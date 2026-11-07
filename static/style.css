@@ -1,0 +1,94 @@
+/* Ddove1 — Concrete Roman (text) + Neo Euler (math, MathML) + 芫荽 Iansui (CJK).
+   Same look as the iA Writer template "Reading Concrete". */
+
+@font-face { font-family: "CMU Concrete"; font-style: normal; font-weight: 500;
+  src: url("/static/fonts/cmu/cmu-concrete-500-roman.woff2") format("woff2"); font-display: swap; }
+@font-face { font-family: "CMU Concrete"; font-style: italic; font-weight: 500;
+  src: url("/static/fonts/cmu/cmu-concrete-500-italic.woff2") format("woff2"); font-display: swap; }
+@font-face { font-family: "CMU Concrete"; font-style: normal; font-weight: 700;
+  src: url("/static/fonts/cmu/cmu-concrete-700-roman.woff2") format("woff2"); font-display: swap; }
+@font-face { font-family: "CMU Concrete"; font-style: italic; font-weight: 700;
+  src: url("/static/fonts/cmu/cmu-concrete-700-italic.woff2") format("woff2"); font-display: swap; }
+@font-face { font-family: "CMU Typewriter"; font-style: normal; font-weight: 500;
+  src: url("/static/fonts/cmu/cmu-typewriter-text-500-roman.woff2") format("woff2"); font-display: swap; }
+@font-face { font-family: "Neo Euler"; src: url("/static/fonts/euler/euler.otf") format("opentype"); font-display: swap; }
+
+:root {
+  --ink: #1f1d1a;
+  --paper: #fbf9f4;
+  --rule: #c9c3b6;
+  --muted: #6b655c;
+  --link: #2b4a7a;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --ink: #e6e1d6; --paper: #1d1c1a; --rule: #4a463f; --muted: #a39c90; --link: #9db8e6; }
+}
+
+html { color: var(--ink); background: var(--paper); font-size: 19px; -webkit-text-size-adjust: 100%; }
+@media (max-width: 600px) { html { font-size: 17px; } }
+
+body {
+  margin: 0 auto;
+  max-width: 36em;
+  padding: 1.6rem 1.4rem 4rem;
+  font-family: "CMU Concrete", "Iansui", serif;
+  font-weight: 500;
+  line-height: 1.8;
+  font-kerning: normal;
+}
+
+a { color: var(--link); text-decoration: none; border-bottom: 1px solid color-mix(in srgb, currentColor 35%, transparent); }
+a:hover { border-bottom-color: currentColor; }
+
+header.site { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between;
+  gap: .6em 1.2em; border-bottom: 1px solid var(--rule); padding-bottom: .5em; margin-bottom: 2.2em; }
+header.site .brand { font-size: 1.25rem; border: 0; color: var(--ink); }
+header.site nav a { margin-left: 1em; border: 0; }
+header.site nav a:first-child { margin-left: 0; }
+
+footer.site { margin-top: 4em; border-top: 1px solid var(--rule); padding-top: .6em; font-size: .85em; color: var(--muted); }
+
+/* Iansui has one weight: headings are marked by size, never faux bold */
+h1, h2, h3, h4 { font-weight: 500; font-synthesis: none; line-height: 1.35; margin: 2em 0 .6em; }
+h1 { font-size: 1.7rem; margin-top: .2em; }
+h2 { font-size: 1.3rem; }
+h3 { font-size: 1.1rem; }
+strong { font-weight: 700; font-synthesis: none; }
+
+p { margin: 0 0 .9em; }
+.lead { color: var(--muted); margin-bottom: 1.8em; }
+.meta { color: var(--muted); font-size: .9em; margin-top: -.3em; margin-bottom: 1.6em; }
+.meta a, .entries .kind { color: var(--muted); }
+
+ul, ol { padding-left: 1.5em; margin: 0 0 .9em; }
+li { margin: .2em 0; }
+
+ul.entries { list-style: none; padding: 0; }
+ul.entries li { display: flex; flex-wrap: wrap; gap: 0 .8em; align-items: baseline; margin: .45em 0; }
+ul.entries time { color: var(--muted); font-size: .85em; font-variant-numeric: tabular-nums; min-width: 6.2em; }
+ul.entries .kind { font-size: .85em; border: 0; }
+.empty { color: var(--muted); }
+
+blockquote { margin: 1em 0 1em 1.5em; padding: 0; color: var(--muted); font-size: .95em; }
+
+code, pre { font-family: "CMU Typewriter", ui-monospace, monospace; font-size: .9em; }
+pre { margin: 1em 0; padding: .8em 1em; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); overflow-x: auto; line-height: 1.5; }
+
+table { border-collapse: collapse; margin: 1.2em auto; font-size: .95em;
+  border-top: 1.5px solid var(--ink); border-bottom: 1.5px solid var(--ink); }
+thead th { border-bottom: 1px solid var(--ink); font-weight: 500; }
+th, td { padding: .35em .9em; text-align: left; vertical-align: top; }
+
+hr { border: 0; border-top: 1px solid var(--rule); margin: 2em auto; width: 40%; }
+img { max-width: 100%; }
+
+/* math: MathML drawn with Euler (letters upright, as in Concrete Mathematics) */
+math { font-family: "Neo Euler", "STIX Two Math", math; font-size: 1.08em; }
+.math-display { margin: 1em 0; overflow-x: auto; text-align: center; }
+.math-display math { display: block math; }
+.math-error { color: #a33; }
+
+.wikilink-missing { border-bottom: 1px dotted var(--rule); }
+
+aside.backlinks { margin-top: 3em; border-top: 1px solid var(--rule); padding-top: .4em; font-size: .92em; }
+aside.backlinks h2 { font-size: 1rem; color: var(--muted); margin: .6em 0 .3em; }
